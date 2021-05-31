@@ -1,4 +1,4 @@
-package com.ecnu.weather.adapter;
+package com.example.weather.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ecnu.weather.Bean.WeatherBean;
-import com.ecnu.weather.R;
+import com.example.weather.Bean.WeatherBean;
+import com.example.weather.R;
 
 import java.util.List;
 

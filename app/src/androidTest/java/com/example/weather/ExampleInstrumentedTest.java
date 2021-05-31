@@ -1,4 +1,4 @@
-package com.ecnu.weather;
+package com.example.weather;
 
 import android.content.Context;
 

@@ -1,11 +1,9 @@
-package com.ecnu.weather;
+package com.example.weather;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -28,9 +26,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.ecnu.weather.Bean.WeatherBean;
-import com.ecnu.weather.adapter.ReAdapter;
-import com.ecnu.weather.adapter.ReAdapter2;
+import com.example.weather.Bean.WeatherBean;
+import com.example.weather.adapter.ReAdapter;
+import com.example.weather.adapter.ReAdapter2;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
@@ -90,14 +88,14 @@ public class MainActivity extends AppCompatActivity {
         tv_cityName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyDialog myDialog = new MyDialog(com.ecnu.weather.MainActivity.this);
+                MyDialog myDialog = new MyDialog(com.example.weather.MainActivity.this);
                 myDialog.show();
             }
         });
         qiehuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyDialog myDialog = new MyDialog(com.ecnu.weather.MainActivity.this);
+                MyDialog myDialog = new MyDialog(com.example.weather.MainActivity.this);
                 myDialog.show();
             }
         });
@@ -163,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
                 weatherBean = gson.fromJson(jsonObject.toString(), WeatherBean.class);
 
                 if(weatherBean.getResult().getHeWeather5().get(0).getStatus().equals("unknown location")){
-                    Toast.makeText(com.ecnu.weather.MainActivity.this, "输入城市有误", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(com.example.weather.MainActivity.this, "输入城市有误", Toast.LENGTH_SHORT).show();
                 }else {
                     tv_zhunagtai.setText(weatherBean.getResult().getHeWeather5().get(0).getNow().getCond().getTxt());
                     sheshidu.setText(weatherBean.getResult().getHeWeather5().get(0).getNow().getTmp() + "℃");
@@ -206,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
                     tv55.setText("      " + weatherBean.getResult().getHeWeather5().get(0).getSuggestion().getSport().getTxt());
                     tv66.setText("      " + weatherBean.getResult().getHeWeather5().get(0).getSuggestion().getTrav().getTxt());
                     refreshLayout.setRefreshing(false);
-                    Toast.makeText(com.ecnu.weather.MainActivity.this, "更新时间" + weatherBean.getResult().getHeWeather5().get(0).getBasic().getUpdate().getLoc(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(com.example.weather.MainActivity.this, "更新时间" + weatherBean.getResult().getHeWeather5().get(0).getBasic().getUpdate().getLoc(), Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -214,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(com.ecnu.weather.MainActivity.this, "网络有误", Toast.LENGTH_SHORT).show();
+                Toast.makeText(com.example.weather.MainActivity.this, "网络有误", Toast.LENGTH_SHORT).show();
                 refreshLayout.setRefreshing(false);
             }
         });
@@ -241,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Log.d("dddddddd", "dfgagfagdfg");
                     if (editText.getText().toString().equals("")) {
-                        Toast.makeText(com.ecnu.weather.MainActivity.this, "输入为空,重新输入", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(com.example.weather.MainActivity.this, "输入为空,重新输入", Toast.LENGTH_SHORT).show();
                     } else {
                         selectWeather(editText.getText().toString());
                         //sp存储

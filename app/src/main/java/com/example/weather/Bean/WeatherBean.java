@@ -1,4 +1,4 @@
-package com.ecnu.weather.Bean;
+package com.example.weather.Bean;
 
 import java.util.List;
 
